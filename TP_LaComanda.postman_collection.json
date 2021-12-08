@@ -1,0 +1,1222 @@
+{
+	"info": {
+		"_postman_id": "ba643eb6-0a39-4a87-b9a5-5f03a183fe01",
+		"name": "TP_LaComanda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loginEmpleado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzY4NTAxNDEsImV4cCI6MTYzNjkxMDE0MSwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsidXN1YXJpbyI6IndpbHNvbiIsInBlcmZpbCI6MX0sImFwcCI6IlRlc3QgSldUIn0.9jLWd58FDtkrZPUmDM16oCeT6EEMiDRwNvXKU8fMyGw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "priscila",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "laura",
+							"disabled": true
+						},
+						{
+							"key": "mail",
+							"value": "laura@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "clave",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListadosDeUsuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "wilson",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "no",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:666/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "AltaDeUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "pepex",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "cheve@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "852",
+							"type": "text"
+						},
+						{
+							"key": "tipo_empleado",
+							"value": "mozo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "laura",
+							"disabled": true
+						},
+						{
+							"key": "mail",
+							"value": "laura@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "clave",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/users/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"users",
+						"21"
+					],
+					"query": [
+						{
+							"key": "mail",
+							"value": "cheve@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suspendeUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estado\": \"suspender\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:666/users/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"users",
+						"31"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "cheve@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cargarCSV",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/xampp/htdocs/LaComanda/public/Archivos/cargarUsser.csv"
+						}
+					]
+				},
+				"url": "http://localhost:666/users/addCsv"
+			},
+			"response": []
+		},
+		{
+			"name": "listadocsv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/users/reportescsv"
+			},
+			"response": []
+		},
+		{
+			"name": "AltaDeProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_sector",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "miller",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "230",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "20",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/productos/"
+			},
+			"response": []
+		},
+		{
+			"name": "ListasDeProductos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/productos/"
+			},
+			"response": []
+		},
+		{
+			"name": "AltaDeMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "ertye2",
+							"type": "text"
+						},
+						{
+							"key": "id_estado",
+							"value": "0",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:666/mesas/"
+			},
+			"response": []
+		},
+		{
+			"name": "ListasDeMesas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/mesas/"
+			},
+			"response": []
+		},
+		{
+			"name": "AltaDePedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg2NDI2MTgsImV4cCI6MTYzOTI0NzQxOCwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjIsInVzdWFyaW8iOiJwcmlzY2lsYSIsInBlcmZpbCI6Mn0sImFwcCI6IlRlc3QgSldUIn0.KtIBRI3ri1XdrF7Rzq_Ee8ZAasuMI6z9XjRcvDv7vGI"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_mesa",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "id_producto",
+							"value": "9",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "silvina",
+							"type": "text"
+						},
+						{
+							"key": "codigo",
+							"value": "0708",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/Wilson/Pictures/inteligenciaEmocional.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/pedidos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"pedidos",
+						""
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OperacionPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg2NDIzOTMsImV4cCI6MTYzOTI0NzE5MywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjQsInVzdWFyaW8iOiJtYXhpIiwicGVyZmlsIjo0fSwiYXBwIjoiVGVzdCBKV1QifQ.RDhWCNoztIVbm3zaNBmEQlzcv5N-cw8tTKZFYpqN6Uk"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "estado",
+							"value": "servir",
+							"type": "text"
+						},
+						{
+							"key": "tiempo",
+							"value": "50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/pedidos/tomarPedido/0709",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"pedidos",
+						"tomarPedido",
+						"0709"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VerUnpedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzgwMTY3MTcsImV4cCI6MTYzODA3NjcxNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjQsInVzdWFyaW8iOiJtYXhpIiwicGVyZmlsIjo0fSwiYXBwIjoiVGVzdCBKV1QifQ.gydiznnX1WihLMK1bHnMIL5MjtDJeQtkKqtasdqtdEc"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "ertye",
+							"type": "text"
+						},
+						{
+							"key": "numero",
+							"value": "7094",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/pedidos/VerMiPedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"pedidos",
+						"VerMiPedido"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListasPendiente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg2NDIzOTMsImV4cCI6MTYzOTI0NzE5MywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjQsInVzdWFyaW8iOiJtYXhpIiwicGVyZmlsIjo0fSwiYXBwIjoiVGVzdCBKV1QifQ.RDhWCNoztIVbm3zaNBmEQlzcv5N-cw8tTKZFYpqN6Uk"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/pedidos/pendientes"
+			},
+			"response": []
+		},
+		{
+			"name": "ListadoPedido",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "maxi",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "987",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/pedidos/"
+			},
+			"response": []
+		},
+		{
+			"name": "MesaComiendo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg2NDI2MTgsImV4cCI6MTYzOTI0NzQxOCwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjIsInVzdWFyaW8iOiJwcmlzY2lsYSIsInBlcmZpbCI6Mn0sImFwcCI6IlRlc3QgSldUIn0.KtIBRI3ri1XdrF7Rzq_Ee8ZAasuMI6z9XjRcvDv7vGI"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pedido",
+							"value": "0748",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "pagando",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:666/mesas/ertye",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"mesas",
+						"ertye"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MesaCerrado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "ertye",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/mesas/cerrado/ertye",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"mesas",
+						"cerrado",
+						"ertye"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistrarEncuesta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzgwMTY3MTcsImV4cCI6MTYzODA3NjcxNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjQsInVzdWFyaW8iOiJtYXhpIiwicGVyZmlsIjo0fSwiYXBwIjoiVGVzdCBKV1QifQ.gydiznnX1WihLMK1bHnMIL5MjtDJeQtkKqtasdqtdEc"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoMesa",
+							"value": "wil003",
+							"type": "text"
+						},
+						{
+							"key": "num_pedido",
+							"value": "0707",
+							"type": "text"
+						},
+						{
+							"key": "punt_Mesa",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "punt_Restaurante",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "punt_Mozo",
+							"value": "9",
+							"type": "text"
+						},
+						{
+							"key": "punt_cocinero",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "comentario",
+							"value": "lugar es un muy socio, principalmente la mesas,  el restaurante necesita una  buena pintura el mozo un copado. pero lo demas no me gusto la comida tenia una cucaracha. ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/mesas/encuesta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"mesas",
+						"encuesta"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MejoresComentario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "wil003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/mesas/comentarios/mejores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"mesas",
+						"comentarios",
+						"mejores"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MesaMasUsado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "wil003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/mesa/masUsado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"mesa",
+						"masUsado"
+					],
+					"query": [
+						{
+							"key": "id_mesa",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_producto",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "cliente",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "codigo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_pedido",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fecha",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_empleado",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_estado_mesa",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "decagarpdf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_sector",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "miller",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "230",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "20",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/pedidos/pdf"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,115 @@
+<?php
+
+class Usuario
+{
+    public $id;
+    public $nombre;
+    public $mail;
+    public $clave;
+    public $id_tipo_empleado;
+    public $estado;
+
+
+
+    public function MostrarDatos(){
+
+        return "Nombre: " . $this->nombre . " mail: " . $this->mail . " Id_tipo_Empleado: " . $this->id_tipo_empleado;
+    }
+
+    public function crearUsuario()
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO usuarios (nombre, mail, clave, id_tipo_empleado, estado ) VALUES (:nombre, :mail, :clave, :id_tipo_empleado, :estado)");
+        $claveHash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $consulta->bindValue(':clave', $claveHash);
+        $consulta->bindValue(':id_tipo_empleado', $this->id_tipo_empleado, PDO::PARAM_INT);
+        $consulta->bindValue(':estado', $this->estado, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return $objAccesoDatos->obtenerUltimoId();
+    }
+
+    public static function obtenerTodos()
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT id, nombre, mail, clave, id_tipo_empleado, estado FROM usuarios");
+        $consulta->execute();
+
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuario');
+    }
+    public static function obtenerTodoscsv()
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT id, nombre, mail, clave, id_tipo_empleado FROM usuarios");
+        $consulta->execute();
+
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function obtenerUsuario($usuario)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT id, nombre, mail, clave, id_tipo_empleado FROM usuarios WHERE nombre = :usuario");
+        $consulta->bindValue(':usuario', $usuario, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return $consulta->fetchObject('Usuario');
+    }
+
+    public static function obtenerUsuarioMail($usuario, $mail)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT id, nombre, mail, clave, id_tipo_empleado, estado  FROM usuarios WHERE usuario = :usuario AND mail = :mail");
+        $consulta->bindValue(':usuario', $usuario, PDO::PARAM_STR);
+        $consulta->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return $consulta->fetchObject('Usuario');
+    }
+
+    public static function modificarUsuario($usuario)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE usuarios SET usuario = :usuario, clave = :clave WHERE id = :id");
+
+        $consulta->bindValue(':usuario', $usuario->usuario, PDO::PARAM_STR);
+        $consulta->bindValue(':clave', $usuario->clave, PDO::PARAM_STR);
+        $consulta->bindValue(':id', $usuario->id, PDO::PARAM_INT);
+        $consulta->execute();
+    }
+
+    public function ModificarEstado($estado)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE usuarios SET estado = :estado WHERE id = :id");
+        $consulta->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $consulta->bindValue(':estado', $estado,  PDO::PARAM_STR );
+        $consulta->execute();
+    }
+    public static function  obtenerUsuarioid($id)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT id, nombre, mail, clave, id_tipo_empleado , estado FROM usuarios WHERE id = :id");
+        $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+        $consulta->execute();
+
+        return $consulta->fetchObject('Usuario');
+    }
+
+    public static function VerificarDatos($usuario, $clave){
+
+        $usser = usuario::obtenerUsuario($usuario);
+        if($usser != false){
+            if(password_verify($clave, $usser->clave)){
+               return $usser;
+            }else{
+                throw new Exception('Incorrecta la contraseña.');
+            }
+        } else {
+            throw new Exception('No se encontro el usuario: ');
+        }
+       
+    }
+}
