@@ -26,7 +26,6 @@ class ProductoController extends Producto implements IApiUsable
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
-        //probar el listado y dar el alta de uno producto.
     }
     public function TraerTodos($request, $response, $args)
     {
@@ -40,63 +39,51 @@ class ProductoController extends Producto implements IApiUsable
 
     public function TraerUno($request, $response, $args)
     {
-      /*
-        // Buscamos usuario por nombre
-        $usr = $args['usuario'];
-        $usuario = Usuario::obtenerUsuario($usr);
-        $payload = json_encode($usuario);
-
+        $productId = $args['id'];
+        $product = Producto::obtenerUno($productId);
+        $product ?  $payload = json_encode($product) :  $payload = json_encode( Array("error" => "no exite el producto"));
         $response->getBody()->write($payload);
         return $response
-          ->withHeader('Content-Type', 'application/json');*/
+          ->withHeader('Content-Type', 'application/json');
     }
 
 
     public function ModificarUno($request, $response, $args)
     {
-      /*
+      
         $parametros = $request->getParsedBody();
+        $product = new Producto();
+        $product->id= $parametros['id'];
+        $product->id_sector= $parametros['sector'];
+        $product->nombre= $parametros['nombre'];
+        $product->precio= $parametros['precio'];
+        $product->stock= $parametros['stock'];
 
-        $usuario =  new Usuario();
-        $usuario->id = $parametros['id'];
-        $usuario->usuario = $parametros['usuario'];
-        $usuario->clave = password_hash($parametros['clave'], PASSWORD_DEFAULT);
-
-        Usuario::modificarUsuario($usuario);
-
-        $payload = json_encode(array("mensaje" => "Usuario modificado con exito"));
-
+        $product->modificar();
+        $payload = json_encode(array("mensaje" => "Producto modificado con exito"));
         $response->getBody()->write($payload);
         return $response
-          ->withHeader('Content-Type', 'application/json');*/
+          ->withHeader('Content-Type', 'application/json');
     }
 
 
     public function BorrarUno($request, $response, $args)
     {
-/*
-        $usuarioId = $args['id'];
-        Usuario::borrarUsuario($usuarioId);
+        $productoid = $args['id'];
 
-        $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
-
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');*/
-    }
-/*
-    public function Login($request, $response, $args) {
-
-      $parametros = $request->getParsedBody();
-      $usuario = $parametros['usuario'];
-      $clave = $parametros['clave'];
-
-      $retono =  Usuario::VerificarDatos($usuario, $clave);
-      $payload = json_encode(array("mensaje" => $retono));
-
+        $producto = Producto::obtenerUno($productoid);
+        if($producto){
+          Producto::darDeBaja($productoid);
+          $payload = json_encode(array("mensaje" => "producto borrado con exito"));
+  
+        }else{
+          $payload = json_encode(array("error" => "producto no exite"));
+        }
+    
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
+          
     }
-    */
+
 }

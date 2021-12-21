@@ -21,12 +21,12 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "priscila",
+							"value": "wilson",
 							"type": "text"
 						},
 						{
 							"key": "clave",
-							"value": "456",
+							"value": "123",
 							"type": "text"
 						}
 					]
@@ -69,6 +69,41 @@
 		},
 		{
 			"name": "ListadosDeUsuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzg1ODMwMjcsImV4cCI6MTYzOTE4NzgyNywiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.GcICGekEY6a0cu0i8QAsZ03V_NkWWhjE-5USABXt_Uw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "wilson",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "no",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:666/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUno",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -336,6 +371,111 @@
 				"method": "GET",
 				"header": [],
 				"url": "http://localhost:666/productos/"
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUnoPorduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzk5NjQ1OTEsImV4cCI6MTY0MDU2OTM5MSwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.NJTI5bupejDCikyLYqKkVseFZYDKoo3xEg1Ku3f-WS8"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:666/products/"
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzk5NjQ1OTEsImV4cCI6MTY0MDU2OTM5MSwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.NJTI5bupejDCikyLYqKkVseFZYDKoo3xEg1Ku3f-WS8"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sector",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "miller",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "342",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "451",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/products/"
+			},
+			"response": []
+		},
+		{
+			"name": "borrarProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mzk5NjQ1OTEsImV4cCI6MTY0MDU2OTM5MSwiYXVkIjoiMWUxNmExNzRhZDRmNTk0Mzk4MDJkYjUyOWM1ZGE2YjQ5MDlhNzcwMyIsImRhdGEiOnsiaWQiOjEsInVzdWFyaW8iOiJ3aWxzb24iLCJwZXJmaWwiOjF9LCJhcHAiOiJUZXN0IEpXVCJ9.NJTI5bupejDCikyLYqKkVseFZYDKoo3xEg1Ku3f-WS8"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sector",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "miller",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "342",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "451",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:666/products/"
 			},
 			"response": []
 		},
@@ -742,12 +882,7 @@
 							"value": "pagando",
 							"type": "text"
 						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:666/mesas/ertye",

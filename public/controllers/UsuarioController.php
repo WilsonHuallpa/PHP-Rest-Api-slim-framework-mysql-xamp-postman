@@ -7,6 +7,7 @@ class UsuarioController extends Usuario implements IApiUsable
 {
     public function CargarUno($request, $response, $args)
     {
+      try{
         $parametros = $request->getParsedBody();
         $nombre = $parametros['nombre'];
         $mail = $parametros['mail'];
@@ -35,7 +36,6 @@ class UsuarioController extends Usuario implements IApiUsable
                 break;
         }
          $aux = Usuario::obtenerUsuario($nombre);
-
          if($aux){
             $payload = json_encode(array("mensaje" => "Usuario ya existe"));
          }else{
@@ -46,33 +46,41 @@ class UsuarioController extends Usuario implements IApiUsable
             $usr->id_tipo_empleado = $id_tipoEmpleado;
             $usr->estado = "activo";
             $usr->crearUsuario();
+            /*
             $headers = $response->getHeaders();
             foreach ($headers as $name => $values) {
                 echo $name . ": " . implode(", ", $values);
-            }
+            }*/
             $payload = json_encode(array("mensaje" => "ok"));
          }
+      }catch (Exception $e) {
+        $payload = json_encode(array('error' => $e->getMessage()));
+      }
         $response->getBody()->write($payload);
-
         return $response->withStatus(201)->withHeader('Content-type', 'application/json');
     }
 
     public function TraerUno($request, $response, $args)
     {
-        $usr = $args['usuario'];
-        $usuario = Usuario::obtenerUsuario($usr);
-        $payload = json_encode($usuario);
+      try{
+        $usr = $args['id'];
+        $usuario = Usuario::obtenerUsuarioid($usr);
+        $usuario ?  $payload = json_encode($usuario) : $payload = json_encode(array('error' => "No exite el usuario."));
+      }catch(Exception $e){
+        $payload = json_encode(array('error' => $e->getMessage()));
+      }
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
-          
     }
 
     public function TraerTodos($request, $response, $args)
     {
+      try{
         $lista = Usuario::obtenerTodos();
-
         $payload = json_encode(array("ListadoEmpleado" => $lista ));
-
+      }catch(Exception $e){
+        $payload = json_encode(array('error' => $e->getMessage()));
+      }
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
     }
@@ -82,7 +90,6 @@ class UsuarioController extends Usuario implements IApiUsable
       $parametros = $request->getParsedBody();
       $usuarioid = $args['id'];
       $estado = $parametros['estado'];
-    
       $auxUsser=Usuario::obtenerUsuarioid($usuarioid);
       if($auxUsser){
         $auxUsser->ModificarEstado($estado);
@@ -106,8 +113,8 @@ class UsuarioController extends Usuario implements IApiUsable
           $estado = $auxUsser->estado;
 
           if($estado != "baja"){
-            $auxUsser->estado = "baja";
-            $auxUsser->ModificarEstado();
+           
+            $auxUsser->ModificarEstado($estado);
             $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
           }else{
             $payload = json_encode(array("mensaje" => "Usuario ya se encuentra aliminado."));

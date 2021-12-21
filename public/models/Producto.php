@@ -39,4 +39,31 @@ class Producto
 
         return $consulta->fetchObject('Producto');
     }
+    public function modificar(){
+
+        $objAccesoDatos = AccesoDatos::obtenerInstancia(); 
+        $consulta =$objAccesoDatos->prepararConsulta("
+            update productos 
+            set id_sector=:id_sector,
+            nombre=:nombre,
+            precio=:precio,
+            stock=:stock
+            WHERE id=:id");
+        $consulta->bindValue(':id_sector',$this->id_sector, PDO::PARAM_INT);
+        $consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':precio', $this->precio, PDO::PARAM_INT);
+        $consulta->bindValue(':stock', $this->stock, PDO::PARAM_INT);
+        $consulta->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $consulta->execute();
+    }
+
+    public static function darDeBaja($id){
+    
+        $objAccesoDatos = AccesoDatos::obtenerInstancia(); 
+        $consulta =$objAccesoDatos->prepararConsulta("UPDATE productos SET fechaBaja = :fechaBaja WHERE id = :id");
+        $fecha = new DateTime(date("d-m-Y"));
+        $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+        $consulta->bindValue(':fechaBaja', date_format($fecha, 'Y-m-d H:i:s'));
+        $consulta->execute();
+    }
 }

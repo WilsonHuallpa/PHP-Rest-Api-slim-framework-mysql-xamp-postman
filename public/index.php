@@ -20,7 +20,6 @@ require_once './models/Archivos.php';
 require_once './models/operacion.php';
 
 
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
@@ -36,14 +35,18 @@ $app->post('/login',\UsuarioController::class . ':LoginEmpleado');
 $app->group('/users', function (RouteCollectorProxy $group) {
     $group->get('/', \UsuarioController::class . ':TraerTodos')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->get('/reportescsv', \UsuarioController::class . ':Mostrarcsv');
+    $group->get('/{id}', \UsuarioController::class . ':TraerUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->post('/', \UsuarioController::class . ':CargarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->post('/addCsv', \UsuarioController::class . ':AltaPorCsv')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->delete('/{id}', \UsuarioController::class . ':BorrarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->patch('/{id}', \UsuarioController::class . ':ModificarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
 });
-$app->group('/productos', function (RouteCollectorProxy $group) {
-    $group->get('/', \ProductoController::class . ':TraerTodos')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken'); ;
+$app->group('/products', function (RouteCollectorProxy $group) {
+    $group->get('/', \ProductoController::class . ':TraerTodos')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
+    $group->get('/{id}', \ProductoController::class . ':TraerUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
     $group->post('/', \ProductoController::class . ':CargarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
+    $group->put('/', \ProductoController::class . ':ModificarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
+    $group->delete('/{id}', \ProductoController::class . ':BorrarUno')->add(\MWComanda::class . ':ValidarSocio')->add(\MWComanda::class . ':ValidarToken');
 });
 
 $app->group('/mesas', function (RouteCollectorProxy $group) {
